@@ -15,13 +15,22 @@ class BooksPage extends StatelessWidget {
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            child: Container(
-              child: Text('Entry ${entries[index]}'),
-              height: 50,
-              ),
-            onTap: () => Scaffold
-              .of(context)
-              .showSnackBar(SnackBar(content: Text(entries[index]))),
+            child: Card(
+              child: ListTile(
+                leading: Icon(Icons.book, size: 35.0,),
+                title: Text('Entry ${entries[index]}'),
+                subtitle: Text('Here is a second line'),
+                trailing: GestureDetector(
+                  child: Icon(Icons.clear),
+                  onTap: () => Scaffold
+                    .of(context)
+                    .showSnackBar(SnackBar(content: Text('Cleared ' + entries[index]))),
+                    ),
+                onTap: () => Scaffold
+                  .of(context)
+                  .showSnackBar(SnackBar(content: Text(entries[index]))),
+                  ),
+            ),
           );
         }
       ),
