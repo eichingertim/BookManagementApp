@@ -2,9 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:sqflite/sqflite.dart';
+import 'create_new_book.dart';
 
-class BooksPage extends StatelessWidget {
+class BooksPage extends StatefulWidget {
 
+  BooksPageState createState() => BooksPageState();
+
+}
+
+class BooksPageState extends State<BooksPage> {
   final List<String> entries = <String>['Book 1', 'Book 2', 'Book 3'];
 
   @override
@@ -37,7 +43,14 @@ class BooksPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         backgroundColor: Colors.blue,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CreateNewBook()),
+          );
+        },
       ),
     );
   }
+
 }
