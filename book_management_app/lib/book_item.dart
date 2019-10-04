@@ -1,13 +1,21 @@
 class BookItem {
 
-  String name;
-  int currentPage;
-  int timeRead;
+  final int id;
+  final String title;
+  final int currentPage;
+  final int numPages;
+  final int timeRead;
 
-  BookItem(String name, int currentPage, int timeRead) {
-    this.name = name;
-    this.currentPage = currentPage;
-    this.timeRead = timeRead;
+  BookItem({this.id, this.title, this.currentPage, this.numPages, this.timeRead});
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'currentPage': currentPage,
+      'numPages': numPages,
+      'timeRead': timeRead,
+    };
   }
 
 }
