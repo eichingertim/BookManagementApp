@@ -64,6 +64,9 @@ class TimePageState extends State<TimePage> {
 
   void startStopStopWatch() {
     if (swatch.isRunning) {
+      setState(() {
+       dbHelper.update(BookItem(bookId, bookTitle, bookReadPages, bookTotalPages, intTimeOverAll+swatch.elapsed.inSeconds));
+      });
       swatch.stop();
     } else {
       swatch.start();
