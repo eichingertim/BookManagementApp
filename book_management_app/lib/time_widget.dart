@@ -15,7 +15,7 @@ class TimePage extends StatefulWidget {
 
 }
 
-class TimePageState extends State<TimePage> {
+class TimePageState extends State<TimePage> with AutomaticKeepAliveClientMixin {
 
   String time = "00:00:00";
   int bookId = 1;
@@ -328,5 +328,8 @@ class TimePageState extends State<TimePage> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
 }
