@@ -66,6 +66,7 @@ class TimePageState extends State<TimePage> with AutomaticKeepAliveClientMixin {
     if (swatch.isRunning) {
       setState(() {
        dbHelper.update(BookItem(bookId, bookTitle, bookReadPages, bookTotalPages, intTimeOverAll+swatch.elapsed.inSeconds));
+       refreshList();
       });
       swatch.stop();
     } else {
